@@ -1,7 +1,7 @@
 # Tesla Supplier Stock Prediction
 
 > **Can supplier stock movements predict Tesla's price?**  
-> A stacking ensemble study — LSTM + Random Forest + XGBoost — across 2018–2024.  
+> A stacking ensemble study LSTM + Random Forest + XGBoost across 2018–2024.  
 > Published at the Ohrid Conference · SRH University Berlin
 
 [![Python](https://img.shields.io/badge/Python-3.10%2B-blue?logo=python&logoColor=white)](https://python.org)
@@ -15,7 +15,7 @@
 
 Tesla sits at the intersection of semiconductors, batteries, raw materials, and consumer electronics. Its 9 key suppliers span 4 continents and multiple industries. If a supplier's stock moves, does Tesla's follow?
 
-This project tests that hypothesis rigorously — building a two-layer stacking ensemble and running four controlled experiments that isolate exactly how much predictive power suppliers add on top of Tesla's own price history.
+This project tests that hypothesis rigorously building a two-layer stacking ensemble and running four controlled experiments that isolate exactly how much predictive power suppliers add on top of Tesla's own price history.
 
 ---
 
@@ -41,7 +41,7 @@ This project tests that hypothesis rigorously — building a two-layer stacking 
                Next-day Tesla price
 ```
 
-The LSTM captures sequential momentum in 10-step sliding windows. Random Forest handles non-linear feature interactions without sequence assumptions. XGBoost learns the optimal blend of their out-of-fold predictions — trained separately to prevent leakage.
+The LSTM captures sequential momentum in 10-step sliding windows. Random Forest handles non-linear feature interactions without sequence assumptions. XGBoost learns the optimal blend of their out-of-fold predictions trained separately to prevent leakage.
 
 ---
 
@@ -83,9 +83,9 @@ Level3 █████████████  70       Level3 █████�
 
 **What the numbers say:**
 
-- Tesla's own 1-day lag (Level 1) explains 63% of variance — momentum is the dominant signal
+- Tesla's own 1-day lag (Level 1) explains 63% of variance momentum is the dominant signal
 - Suppliers add a meaningful but secondary layer: Level 3 beats Level 1 by **16% on directional accuracy** (34.7% vs 26.7%), which is the metric that actually matters for trading signals
-- The 20-day lag (Level 2) destroys performance — autocorrelation decays fast in volatile stocks
+- The 20-day lag (Level 2) destroys performance autocorrelation decays fast in volatile stocks
 - Suppliers alone (Base) are worse than a naive mean predictor on most folds (R² < 0 per-fold)
 
 ---
@@ -125,7 +125,7 @@ pip install -r requirements.txt
 ## Usage
 
 ```bash
-# Full pipeline — all 4 model levels + plots
+# Full pipeline all 4 model levels + plots
 python train.py
 
 # Single level
@@ -201,12 +201,3 @@ Generated at runtime: `data/` · `results/` · `plots/` · `models/`
 }
 ```
 
----
-
-## Disclaimer
-
-Research and educational purposes only. Not financial advice. Do not use model outputs for actual trading decisions.
-
----
-
-MIT License — see [LICENSE](LICENSE) for details.
